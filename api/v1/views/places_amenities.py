@@ -37,7 +37,7 @@ def delete_place_amenity(place_id, amenity_id):
         storage.save()
         return jsonify({})
     else:
-        place.amenity_ids.pop(amenity_id, None)
+        place.amenity_ids.remove(amenity_id)
         place.save()
         return jsonify({})
 

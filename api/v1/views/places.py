@@ -95,9 +95,9 @@ def place_search():
         return jsonify([x.to_dict() for x in places])
 
     result = []
-    state_ids = body['states'] if body.get('states') else []
-    city_ids = body['cities'] if body.get('cities') else []
-    amenity_ids = body['amenities'] if body.get('amenities') else []
+    state_ids = body.get('states', [])
+    city_ids = body.get('cities', [])
+    amenity_ids = body.get('amenities', [])
 
     cities = []
     if len(state_ids):
