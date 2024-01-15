@@ -105,6 +105,7 @@ if amenity_id_3 is None or amenity_id_3 == "":
 
 # Places
 place_id_0 = exec_command(my_console, "create Place city_id=\"{}\" user_id=\"{}\" name=\"House0\" description=\"des\" number_rooms=4 number_bathrooms=3 max_guest=6 price_by_night=100 latitude=1.3 longitude=2.3".format(city_id_0_0, user_id_0))
+print(place_id_0)
 if place_id_0 is None or place_id_0 == "":
     print("FAIL: Can't create Place")
 place_id_1 = exec_command(my_console, "create Place city_id=\"{}\" user_id=\"{}\" name=\"House1\" description=\"des\" number_rooms=1 number_bathrooms=1 max_guest=2 price_by_night=90 latitude=1.3 longitude=2.3".format(city_id_0_0, user_id_0))

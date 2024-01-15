@@ -62,6 +62,11 @@ class HBNBCommand(cmd.Cmd):
             return False
         if args[0] in classes:
             new_dict = self._key_value_parser(args[1:])
+            if args[0] == 'User':
+                if 'password' in new_dict:
+                    _password = new_dict['password']
+                    new_dict.pop('password')
+                    new_dict['_password'] = _password
             instance = classes[args[0]](**new_dict)
         else:
             print("** class doesn't exist **")
@@ -159,6 +164,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
         else:
             print("** class doesn't exist **")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
