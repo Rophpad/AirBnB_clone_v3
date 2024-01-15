@@ -118,13 +118,13 @@ def place_search():
 
     for place in places:
         place_amenities = place.amenities
-        if place.city_id in [x.id for x in cities] and len(city_ids):
-            if all(x in place_amenities for x in amenities):
+        if all(x in place_amenities for x in amenities):
+            if place.city_id in [x.id for x in cities] and len(city_ids):
                 place = place.to_dict()
-        else:
-            if all(x in place_amenities for x in amenities):
+                place.pop('amenities')
+                result.append(place)
+            else:
                 place = place.to_dict()
-        if place.get('amenities'):
-            del place['amenities']
-        result.append(place)
+                place.pop('amenities')
+                result.append(place)
     return jsonify(result)
